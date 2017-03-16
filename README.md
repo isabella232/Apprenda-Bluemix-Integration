@@ -30,14 +30,15 @@ The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services 
     1. Enter in the "Instance Alias" (how Apprenda will identify your add-on instance)
     2. Enter the "Bluemix Service Name" as defined by Bluemix. This can be found by calling the "https://api.ng.bluemix.net/v2/services" endpoint for a complete list.
     3. Enter the "Service Name". This is the name of your service within Bluemix itself. 
-    ```cs
-    //Example C# API call for services
-    var client = new RestClient("https://api.ng.bluemix.net/v2/services");
-    var request = new RestRequest(Method.GET);
-    request.AddHeader("cache-control", "no-cache");
-    request.AddHeader("authorization", "bearer YOURTOKENHERE");
-    IRestResponse response = client.Execute(request);
-    ```
+
+```cs
+//Example C# API call for services
+var client = new RestClient("https://api.ng.bluemix.net/v2/services");
+var request = new RestRequest(Method.GET);
+request.AddHeader("cache-control", "no-cache");
+request.AddHeader("authorization", "bearer YOURTOKENHERE");
+IRestResponse response = client.Execute(request);
+```
     
 7. If you'd like to check if your "Bluemix Service Name" is correct, go back to the Add-ons section in the SOC and click the test button (only enter the "Bluemix Service Name"). 
 
