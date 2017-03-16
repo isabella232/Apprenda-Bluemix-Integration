@@ -13,5 +13,7 @@ Additional information about creating Add-Ons can be found here:
 3. Package your Add-On by simply zipping up your AddOnManifest.xml, icon.png and compiled assemblies. 
 4. Upload to your System Operations Center (SOC). -> http://docs.apprenda.com/current/addons
 
+![](/readme_images/bluemixaddon_general.png)
+
 # Modifying the Apprenda Target Version
 This BSP is packaged with the DLL for Apprenda Version 6.5.1. If you wish to use a different Apprenda version, simply replace the SaaSGrid.API.dll file in the lib folder with the desired version installed from your SDK. 
