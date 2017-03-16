@@ -11,7 +11,7 @@ namespace BluemixAddon_Test
         public void Provision()
         {
             BluemixAddon test = new BluemixAddon();
-            var token = test.authenticate("cdutra%40apprenda.com","Apprenda2016!");
+            var token = test.authenticate("","");
             var servicePlansURL = test.getServicePlansURL(token, "conversation");//"watson_vision_combined");
             var servicePlanGUID = test.getServicePlanGUID(token, servicePlansURL);
             //TODO PARAMETERIZE
@@ -26,7 +26,7 @@ namespace BluemixAddon_Test
         public void Deprovision()
         {
             BluemixAddon test = new BluemixAddon();
-            var token = test.authenticate("cdutra%40apprenda.com", "Apprenda2016!");
+            var token = test.authenticate("", "");
             //TODO PARAMETERIZE
             var name = "sample_watson_dialog";
             var serviceGUID = test.getServiceGUID(token, name);
