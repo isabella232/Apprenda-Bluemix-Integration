@@ -40,7 +40,6 @@ request.AddHeader("authorization", "bearer YOURTOKENHERE");
 IRestResponse response = client.Execute(request);
 ```
     
-7. If you'd like to check if your "Bluemix Service Name" is correct, go back to the Add-ons section in the SOC and click the test button (only enter the "Bluemix Service Name"). 
-
-
 ![](/readme_images/bluemixaddon_provision.png)
+
+7. If you'd like to check if your "Bluemix Service Name" is correct, go back to the Add-ons section in the SOC and click the test button (only enter the "Bluemix Service Name"). 
