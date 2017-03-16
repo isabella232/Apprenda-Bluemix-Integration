@@ -13,13 +13,11 @@ The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services 
 ## Usage
 1. In the SOC, go to "Configuration->Platform Addons->Edit"
 2. Enter your IBM Bluemix credentials on the general page.       
-
-
-![](/readme_images/bluemixaddon_general.png)
+    ![](/readme_images/bluemixaddon_general.png)
 
 
 3. On the configuration tab, enter your Bluemix "space" that defines where your app will be deployed within Bluemix. 
-4.  Add the current "Bluemix API URL"(ie. "http://api.ng.bluemix.net") and the API Version (ie. "v2")  
+4. Add the current "Bluemix API URL"(ie. "http://api.ng.bluemix.net") and the API Version (ie. "v2")  
     ![](/readme_images/bluemixaddon_config.png)
 
 
@@ -29,15 +27,15 @@ The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services 
     2. Enter the "Bluemix Service Name" as defined by Bluemix. This can be found by calling the "https://api.ng.bluemix.net/v2/services" endpoint for a complete list.
     3. Enter the "Service Name". This is the name of your service within Bluemix itself. 
 
-```cs
-//Example C# API call for services
-var client = new RestClient("https://api.ng.bluemix.net/v2/services");
-var request = new RestRequest(Method.GET);
-request.AddHeader("cache-control", "no-cache");
-request.AddHeader("authorization", "bearer YOURTOKENHERE");
-IRestResponse response = client.Execute(request);
-```
+    ```cs
+    //Example C# API call for services
+    var client = new RestClient("https://api.ng.bluemix.net/v2/services");
+    var request = new RestRequest(Method.GET);
+    request.AddHeader("cache-control", "no-cache");
+    request.AddHeader("authorization", "bearer YOURTOKENHERE");
+    IRestResponse response = client.Execute(request);
+    ```
     
-![](/readme_images/bluemixaddon_provision.png)
+    ![](/readme_images/bluemixaddon_provision.png)
 
 7. If you'd like to check if your "Bluemix Service Name" is correct, go back to the Add-ons section in the SOC and click the test button (only enter the "Bluemix Service Name"). 
