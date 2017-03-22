@@ -13,7 +13,7 @@ The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services 
 ## Usage
 1. Go to the Apprenda Developer Portal and click Addons on the left side.
 2. Enter your IBM Bluemix credentials on the general page.       
-3. On the configuration tab, enter your Bluemix "space" that defines where your app will be deployed within Bluemix. 
+3. Enter your Bluemix "space" that defines where your app will be deployed within Bluemix. 
 4. Add the current "Bluemix API URL"(ie. "http://api.ng.bluemix.net") and the API Version (ie. "v2")  
 5. Click on the Bluemix Add-on and click the "+" symbol to provision an instance of the Add-on
 6. Enter in the "Instance Alias" (how Apprenda will identify your add-on instance)
