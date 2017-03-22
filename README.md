@@ -18,6 +18,8 @@ The Apprenda Bluemix Service Integration allows developers to provision IBM Blue
 
 These are the properties that the developer will specify. The below table outlines the developer parameters that can be used to provision an instance of the addon. This version of the integration only supports developer parameters as it was intended to be used by consumers of the Apprenda Cloud Platform (public alpha) running on Bluemix. 
 
+![](/readme_images/bluemixaddon_provision.png)
+
 | Name (Alias) | Description | Example | 
 | ------------ | ----------- | ------- |
 | Bluemix Username | Your IBM Bluemix Username | user@gmail.com | 
