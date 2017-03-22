@@ -6,13 +6,13 @@ The Apprenda Bluemix Service Integration allows developers to provision IBM Blue
 
 #### v1.0
   * Initial Release
-  * Proivion any Bluemix service that returns a connection string
+  * Provision any Bluemix service that returns a connection string
 
 ## Installation
-    1. Clone the repository.
-    2. Build the Apprenda Bluemix Add-On.
-    3. Package your Add-On by simply zipping up your AddOnManifest.xml, icon.png and compiled assemblies. 
-    4. Upload to your System Operations Center (SOC). -> http://docs.apprenda.com/current/addons
+1. Clone the repository.
+2. Build the Apprenda Bluemix Add-On.
+3. Package your Add-On by simply zipping up your AddOnManifest.xml, icon.png and compiled assemblies. 
+4. Upload to your System Operations Center (SOC). -> http://docs.apprenda.com/current/addons
 
 ### Developer Parameters.
 
