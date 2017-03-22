@@ -21,11 +21,6 @@ namespace Apprenda.Bluemix.AddOn
 
         public override OperationResult Deprovision(AddonDeprovisionRequest _request)
         {
-            /*The Deprovision method allows you to specify the steps taken when a developer deprovisions his/her Add-On. 
-             * You should use this step to clean up any provisioned artifacts. The connectiondata object inside the request should
-             * have all the information needed to clean up the provisioned resource. 
-             * At the end, you can return whether the operation was successful or not as shown in the sample below*/
-
             var deprovisionResult = new OperationResult { EndUserMessage = string.Empty, IsSuccess = false };
 
             var manifest = _request.Manifest;
@@ -37,7 +32,7 @@ namespace Apprenda.Bluemix.AddOn
 
             try
             {
-                var token = authenticate(manifest.ProvisioningUsername, manifest.ProvisioningPassword);
+                var token = authenticate(devOptions.bluemixuser, devOptions.bluemixpass);
                 string name = devOptions.name;
                 var serviceGUID = getServiceGUID(token, name);
                 var status = deleteServiceInstance(token, name, serviceGUID);
@@ -57,12 +52,6 @@ namespace Apprenda.Bluemix.AddOn
 
         public override ProvisionAddOnResult Provision(AddonProvisionRequest _request)
         {
-            /*The Provision method provisions the instance for the service you are setting up. Within this method, you can access the information
-             requested from the developer (if any) by iterating through the request.DeveloperParameters object.
-             * At the end of the provisioning process, simply return the connection information for the service that was provisioned.*/
-            //Retrieving developer parameters
-            //var parameter = request.DeveloperParameters.First(param => param.Key == "RequiredParameter");
-
             var provisionResult = new ProvisionAddOnResult(string.Empty) { IsSuccess = false };
 
             var manifest = _request.Manifest;
@@ -76,11 +65,11 @@ namespace Apprenda.Bluemix.AddOn
 
             try
             {
-                var token = authenticate(manifest.ProvisioningUsername, manifest.ProvisioningPassword);
-                var servicePlansURL = getServicePlansURL(token, devOptions.servicename); //"watson_vision_combined"
+                var token = authenticate(devOptions.bluemixuser, devOptions.bluemixpass);
+                var servicePlansURL = getServicePlansURL(token, devOptions.servicename);
                 var servicePlanGUID = getServicePlanGUID(token, servicePlansURL);
                 string name = devOptions.name;
-                var spaceGUID = getSpaceGuid(token, devOptions.space); //"dev"
+                var spaceGUID = getSpaceGuid(token, devOptions.space);
                 var serviceInstanceGUID = createServiceInstance(token, name, servicePlanGUID, spaceGUID);
                 instanceDetails = createInstanceDetails(token, name, serviceInstanceGUID);
                 log.Info("BluemixAddon Provisioned Successfully");
@@ -99,9 +88,6 @@ namespace Apprenda.Bluemix.AddOn
 
         public override OperationResult Test(AddonTestRequest _request)
         {
-            /*The test method allows you to test whether the Add-On was developed and configured properly and that any dependent systems are
-             operating normally. During this method, you will want to go through a similar workflow to Provision to ensure proper functioning
-             * of the Add-On.*/
             var manifest = _request.Manifest;
             var devParameters = _request.DeveloperParameters;
             var devOptions = BMDeveloperOptions.Parse(devParameters, manifest);
@@ -112,7 +98,7 @@ namespace Apprenda.Bluemix.AddOn
 
             try
             {
-                var token = authenticate(manifest.ProvisioningUsername, manifest.ProvisioningPassword);
+                var token = authenticate(devOptions.bluemixuser, devOptions.bluemixpass);
                 var servicePlansURL = getServicePlansURL(token, devOptions.servicename);
             }
             catch (Exception ex)
@@ -303,16 +289,5 @@ namespace Apprenda.Bluemix.AddOn
             }
 
         }
-
-        public string flattenJSON(JObject json)
-        {
-            var flattenedJSON = string.Empty;
-            foreach(var item in json)
-            {
-                flattenedJSON = flattenedJSON + ';' + item;
-            }
-            return flattenedJSON;
-        }
-
     }
 }

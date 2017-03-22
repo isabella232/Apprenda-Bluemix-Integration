@@ -10,6 +10,8 @@ namespace Apprenda.Bluemix.AddOn
 {
     class BMDeveloperOptions
     {
+        public string bluemixuser { get; set; }
+        public string bluemixpass { get; set; }
         public string space { get; set; }
         public string api_url { get; set; }
         public string api_version { get; set; }
