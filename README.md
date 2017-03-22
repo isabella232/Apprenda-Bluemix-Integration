@@ -1,24 +1,34 @@
-# Apprenda Bluemix Add-on
+# Bluemix Service Integration
 
-The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services from within Apprenda. 
+The Apprenda Bluemix Service Integration allows developers to provision IBM Bluemix Services from within Apprenda. 
+
+### Release Notes
+
+#### v1.0
+  * Initial Release
+  * Proivion any Bluemix service that returns a connection string
 
 ## Installation
+    1. Clone the repository.
+    2. Build the Apprenda Bluemix Add-On.
+    3. Package your Add-On by simply zipping up your AddOnManifest.xml, icon.png and compiled assemblies. 
+    4. Upload to your System Operations Center (SOC). -> http://docs.apprenda.com/current/addons
 
-1. Clone the repository.
-2. Build the Apprenda Bluemix Add-On.
-3. Package your Add-On by simply zipping up your AddOnManifest.xml, icon.png and compiled assemblies. 
-4. Upload to your System Operations Center (SOC). -> http://docs.apprenda.com/current/addons
+### Developer Parameters.
+
+These are the properties that the developer will specify. The below table outlines the developer parameters that can be used to provision an instance of the addon. This version of the integration only supports developer parameters as it was intended to be used by consumers of the Apprenda Cloud Platform (public alpha) running on Bluemix. 
+
+| Name (Alias) | Description | Example | 
+| ------------ | ----------- | ------- |
+| Bluemix Username | Your IBM Bluemix Username | user@gmail.com | 
+| Bluemix Password | Your IBM Bluemix Password | password |
+| Bluemix Service Name | The Bluemix Service name as defined within Bluemix itself. This can be found with a "Services" API call to Bluemix | "conversation" for Watson Conversation Service or "watson_vision_combined" for Watson Vision Service|
+| Bluemix Space | Your IBM Bluemix Space | dev/qa/prod - however you divide up your Bluemix Spaces |
+| Bluemix API URL | The Bluemix API Endpoint | http://api.ng.bluemix.net |
+| Bluemix API Version | The Bluemix API Version | v2 |
 
 
-## Usage
-1. Go to the Apprenda Developer Portal and click Addons on the left side.
-2. Enter your IBM Bluemix credentials on the general page.       
-3. Enter your Bluemix "space" that defines where your app will be deployed within Bluemix. 
-4. Add the current "Bluemix API URL"(ie. "http://api.ng.bluemix.net") and the API Version (ie. "v2")  
-5. Click on the Bluemix Add-on and click the "+" symbol to provision an instance of the Add-on
-6. Enter in the "Instance Alias" (how Apprenda will identify your add-on instance)
-7. Enter the "Bluemix Service Name" as defined by Bluemix. This can be found by calling the "https://api.ng.bluemix.net/v2/services" endpoint for a complete list.
-8. Enter the "Service Name". This is the name of your service within Bluemix itself. 
+### Programmatic way to get Bluemix Service Name
 
     ```cs
     //Example C# API call for services
@@ -28,6 +38,3 @@ The Apprenda Bluemix Add-on allows developers to provision IBM Bluemix Services 
     request.AddHeader("authorization", "bearer YOURTOKENHERE");
     IRestResponse response = client.Execute(request);
     ```
-    
-![](/readme_images/bluemixaddon_provision.png)
-
