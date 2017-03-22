@@ -134,6 +134,7 @@ namespace Apprenda.Bluemix.AddOn
                 return token;
             }catch(Exception ex)
             {
+                log.Info("Error Authenticating with Bluemix: " + ex);
                 throw;
             }
         }
@@ -159,6 +160,7 @@ namespace Apprenda.Bluemix.AddOn
                 return service_plans_url;
             }catch(Exception ex)
             {
+                log.Info("Error getting ServicePlanPlansURL: " + ex);
                 throw;
             }
         }
@@ -176,6 +178,7 @@ namespace Apprenda.Bluemix.AddOn
                 return responseObject.resources[0].metadata.guid;
             }catch(Exception ex)
             {
+                log.Info("Error getting ServicePlanGUID: " + ex);
                 throw;
             }
         }
@@ -193,6 +196,7 @@ namespace Apprenda.Bluemix.AddOn
                 return responseObject.resources[0].metadata.guid;
             }catch(Exception ex)
             {
+                log.Info("Error getting ServiceGUID: " + ex);
                 throw;
             }
         }
@@ -239,6 +243,7 @@ namespace Apprenda.Bluemix.AddOn
                 return responseArray[responseArray.Count - 1].metadata.guid;
             }catch(Exception ex)
             {
+                log.Info("Error getting SpaceGUID: " + ex);
                 throw;
             }
         }
