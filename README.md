@@ -30,11 +30,11 @@ These are the properties that the developer will specify. The below table outlin
 
 ### Programmatic way to get Bluemix Service Name
 
-    ```cs
-    //Example C# API call for services
-    var client = new RestClient("https://api.ng.bluemix.net/v2/services");
-    var request = new RestRequest(Method.GET);
-    request.AddHeader("cache-control", "no-cache");
-    request.AddHeader("authorization", "bearer YOURTOKENHERE");
-    IRestResponse response = client.Execute(request);
-    ```
+```cs
+//Example C# API call for services
+var client = new RestClient("https://api.ng.bluemix.net/v2/services");
+var request = new RestRequest(Method.GET);
+request.AddHeader("cache-control", "no-cache");
+request.AddHeader("authorization", "bearer YOURTOKENHERE");
+IRestResponse response = client.Execute(request);
+```
